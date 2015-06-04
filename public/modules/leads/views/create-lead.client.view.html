@@ -1,0 +1,105 @@
+<section data-ng-controller="LeadsCreateController as leadCtrl">
+
+    <div class="modal-header">
+        <h3 class="modal-title">New Lead</h3>
+    </div>
+
+
+    <div class="modal-body">
+        <form name="createLeadForm">
+            <fieldset>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div data-ng-show="error" class="text-center text-danger">
+                            <div class="alert alert-danger" role="alert">
+                                <strong data-ng-bind="error"></strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <i class="glyphicon glyphicon-user lead-profile" ng-class="{'text-primary': leadCtrl.referred, 'text-pink': !leadCtrl.referred}"></i>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="firstname"> First Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leadCtrl.firstName" id="firstname" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="lastname"> Last Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leadCtrl.lastName" id="lastname" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="city"> City</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leadCtrl.city" id="city" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="country"> Country</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leadCtrl.country" id="country" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-push-6">
+                        <div class="form-group">
+                            <label class="control-label" for="phone"> Phone</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leadCtrl.phone" id="phone" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="email"> Email</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leadCtrl.email" id="email" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-sm-pull-6">
+                        <div class="form-group">
+                            <label class="control-label" for="referred"> Referred</label>
+                            <div class="controls">
+                                <input type="checkbox" data-ng-model="leadCtrl.referred" id="referred" class="form-control checkbox-left">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="channel"> Channel</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leadCtrl.channel" id="channel" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="industry"> Industry</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="leadCtrl.industry" id="industry" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+
+
+    <div class="modal-footer">
+        <button class="btn btn-success btn-lg" ng-click="leadCtrl.create(); ok()" ng-disabled="createLeadForm.$invalid">Save & Close</button>
+        <!-- ng-disabled="createLeadForm.$invalid -->
+        <button class="btn btn-warning btn-lg" ng-click="cancel()">Cancel</button>
+    </div>
+
+
+
+
+</section>

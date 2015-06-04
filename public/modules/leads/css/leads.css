@@ -1,0 +1,23 @@
+.lead-profile {
+    font-size: 250px;
+}
+.lead-list {
+    font-size: 150px;
+}
+.checkbox-left {
+    width: 10%;
+    text-align: left;
+}
+
+.text-pink {
+    color: #EC407A;
+}
+
+.extra-space {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 0 !important ;
+}

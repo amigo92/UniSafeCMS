@@ -1,0 +1,120 @@
+<section data-ng-controller="LeadsUpdateController as leadsUpCtrl">
+
+    <div class="modal-header">
+        <h3 class="modal-title">Update: {{lead.firstName}} {{lead.lastName}}</h3>
+    </div>
+
+
+    <div class="modal-body">
+        <form name="updateLeadForm">
+            <fieldset>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div data-ng-show="error" class="text-center text-danger">
+                            <div class="alert alert-danger" role="alert">
+                                <strong data-ng-bind="error"></strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 text-center">
+                        <i class="glyphicon glyphicon-user lead-profile" ng-class="{'text-primary': lead.referred, 'text-pink': !lead.referred}"></i>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="firstname"> First Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="lead.firstName" id="firstname" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="lastname"> Last Name</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="lead.lastName" id="lastname" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="city"> City</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="lead.city" id="city" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="country"> Country</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="lead.country" id="country" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-sm-push-6">
+                        <div class="form-group">
+                            <label class="control-label" for="phone"> Phone</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="lead.phone" id="phone" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="email"> Email</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="lead.email" id="email" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-sm-pull-6">
+                        <div class="form-group">
+                            <label class="control-label" for="referred"> Referred</label>
+                            <div class="controls">
+                                <input type="checkbox" data-ng-model="lead.referred" id="referred" class="form-control checkbox-left">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="channel"> Channel</label>
+                            <div class="controls">
+                                <select data-ng-model="lead.channel" id="channel" class="form-control" ng-options="channelItem.item for channelItem in channelOptions">
+                                    <option value="">-- choose channel --</option>
+                                </select>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="industry"> Industry</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="lead.industry" id="industry" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+
+
+    <div class="modal-footer">
+        <button class="btn btn-success btn-lg" ng-click="leadsUpCtrl.update(lead); ok()">Update & Close</button>
+        <!-- ng-disabled="updateLeadForm.$invalid -->
+        <button class="btn btn-warning btn-lg" ng-click="cancel()">Cancel</button>
+    </div>
+
+
+
+
+</section>

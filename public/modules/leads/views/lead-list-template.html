@@ -1,0 +1,27 @@
+<div class="list-group">
+	<div class="col-xs-6 col-sm-4 extra-space" data-ng-repeat="lead in leadsCtrl.leads | filter:searchText" >
+		<a ng-click="leadsCtrl.modalUpdate('lg', lead)" class="list-group-item">
+			<h4 class="lead-list text-center">
+				<i class="glyphicon glyphicon-user "
+				   ng-class="{'text-primary': lead.referred, 'text-pink': !lead.referred}"></i>
+			</h4>
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1">
+					<h4>{{lead.firstName}} {{lead.lastName}}</h4>
+					<small class="list-group-item-text text-muted">
+						<span data-ng-bind="lead.created | date:'medium'"></span>
+                        <span class="pull-right">
+                        	<button class="btn btn-default btn-sm" ng-click="leadsCtrl.remove(lead)">
+								<i class="glyphicon glyphicon-trash"></i>
+							</button>
+
+                        </span>
+					</small>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+<div class="alert alert-warning text-center" data-ng-hide="!leads.$resolved || leads.length">
+	No Leads yet, why don't you <a href="/#!/leads/create">create one</a>?
+</div>

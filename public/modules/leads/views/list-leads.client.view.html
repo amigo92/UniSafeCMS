@@ -1,0 +1,35 @@
+<section data-ng-controller="LeadsController as leadsCtrl">
+    <div class="page-header">
+        <h1>Leads</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="user in users"  class="list-group-item">
+            <small class="list-group-item-text">
+                Posted on
+                <span data-ng-bind="user.created | date:'medium'"></span>
+                by
+                <span data-ng-bind="user.displayName"></span>
+            </small>
+            <h4 class="list-group-item-heading" data-ng-bind="user.firstName"></h4>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group input-group-lg">
+                <input type="text" ng-model="searchText" class="form-control" placeholder="Search...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+            <button type="button" class="btn btn-success text-center" ng-click="leadsCtrl.modalCreate('lg')">
+                <i class="glyphicon glyphicon-user "></i> </br>
+                New Lead
+            </button>
+        </div>
+    </div>
+    <br>
+    <br>
+    <lead-list></lead-list>
+</section>
